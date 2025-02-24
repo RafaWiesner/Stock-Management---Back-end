@@ -1,5 +1,8 @@
 import express from "express"
-import productRoutes from "./routes/productRoutes.js"
+import productRoutes from "./src/routes/productRoutes.js"
+
+import { configDotenv } from 'dotenv'; // Importa o método configDotenv
+configDotenv(); // Carrega as variáveis de ambiente do arquivo .env
 
 const app = express();
 const port = process.env.PORT || 3000;

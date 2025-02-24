@@ -1,3 +1,24 @@
+import Product from "../models/Product.js"
+
+
+const getAllProducts = async () => {
+    try {
+        const products = await Product.findAll();
+        return products;
+    } catch (error) {
+        throw new Error('Erro ao buscar os produtos');
+    }
+}
+
+const createProduct = async (productData) => {
+    try {
+        const newProduct = await Product.create(productData); // Cria e salva o produto no banco
+        return newProduct;
+    } catch (error) {
+        throw new Error('Erro ao criar o produto');
+    }
+}
+
 const updateProduct = async (id, productData) => {
     try {
         const product = await Product.findByPk(id); // Encontra o produto pelo ID
@@ -25,7 +46,9 @@ const deleteProduct = async (id) => {
 }
 
 
-module.exports = {
+export default {
+    getAllProducts,
+    createProduct,
     updateProduct,
     deleteProduct
-}
+};

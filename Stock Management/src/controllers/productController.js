@@ -1,6 +1,8 @@
+import productService from "../services/productService.js"
+
 const getAllProducts = async (req, res) => {
     try {
-        const products = await productService.getAll(); // Chama o serviço para obter todos os produtos
+        const products = await productService.getAllProducts(); // Chama o serviço para obter todos os produtos
         res.status(200).json(products); // Retorna os produtos como resposta JSON
     } catch (error) {
         res.status(500).json({ message: 'Erro ao buscar os produtos.' });
@@ -9,7 +11,7 @@ const getAllProducts = async (req, res) => {
 
 const createProduct = async (req,res) => {
     try {
-        const newProduct = await productService.create(req.body) // Chama o serviço e passa os dados do corpo da requisição
+        const newProduct = await productService.createProduct(req.body) // Chama o serviço e passa os dados do corpo da requisição
         res.status(201).json(newProduct); // Retorna o produto criado
     } catch (error) {
         res.status(500).json({ message: 'Erro ao criar o produto.' });
@@ -19,7 +21,7 @@ const createProduct = async (req,res) => {
 const updateProduct = async (req, res) => {
     const id = req.params.id; // Obtém o ID do produto a ser atualizado
     try {
-        const updatedProduct = await productService.update(id, req.body) // Passa o ID e os dados do corpo para o serviço
+        const updatedProduct = await productService.updateProduct(id, req.body) // Passa o ID e os dados do corpo para o serviço
         if (!updatedProduct) {
             return res.status(404).json({ message: 'Produto não encontrado.' }); // Caso o produto não exista
         }
@@ -32,7 +34,7 @@ const updateProduct = async (req, res) => {
 const deleteProduct = async (req, res) => {
     const id = req.params.id; // Obtém o ID do produto a ser atualizado
     try {
-        const deletedProduct = await productService.delete(id)
+        const deletedProduct = await productService.deleteProduct(id)
         if(!deletedProduct) {
             return res.status(404).json({message: 'Produto não encontrado'}) // Caso o produto não exista
         }
@@ -43,9 +45,9 @@ const deleteProduct = async (req, res) => {
 }
 
 
-module.exports = {
+export default {
     getAllProducts,
     createProduct,
     updateProduct,
     deleteProduct
-}
+};
