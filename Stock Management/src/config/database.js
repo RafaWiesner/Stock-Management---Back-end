@@ -19,7 +19,13 @@ const sequelize = new Sequelize(
 
 // Teste de conexão com o banco de dados
 sequelize.authenticate()
-    .then(() => console.log("✅ Conectado ao banco de dados"))
-    .catch(err => console.error("❌ Erro ao conectar ao banco de dados:", err));
+    .then(() => {
+        console.log("Conectado ao banco de dados");
+        
+        // Sincroniza os modelos com o banco de dados
+        return sequelize.sync({ alter: true }); // Cria/atualiza tabelas sem apagar os dados
+    })
+    .then(() => console.log("Banco de dados sincronizado com sucesso!"))
+    .catch(err => console.error("Erro ao conectar/sincronizar com o banco de dados:", err));
 
 export default sequelize;
