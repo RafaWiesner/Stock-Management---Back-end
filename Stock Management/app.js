@@ -8,6 +8,9 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json()); // Permite que o Express entenda JSON nas requisições
+app.use(cors({
+  origin: "http://localhost:5173" // Altere para a URL do seu frontend
+}));
 
 app.use('/products', productRoutes);
 
