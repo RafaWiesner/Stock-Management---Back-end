@@ -1,4 +1,5 @@
 import express from "express"
+import cors from "cors"
 import productRoutes from "./src/routes/productRoutes.js"
 
 import { configDotenv } from 'dotenv'; // Importa o método configDotenv

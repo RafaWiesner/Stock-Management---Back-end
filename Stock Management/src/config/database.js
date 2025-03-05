@@ -11,8 +11,14 @@ const sequelize = new Sequelize(
     process.env.DB_PASSWORD,  // Senha do banco de dados (definido no .env)
     {
         host: process.env.DB_HOST,  // Host do banco de dados (definido no .env)
-        dialect: "postgres",        // Banco de dados PostgreSQL
+        dialect: process.env.DB_DIALECT, // Agora usa a variável DB_DIALECT do .env
         port: process.env.DB_PORT,  // Porta do banco de dados (geralmente 5432 para PostgreSQL)
+        dialectOptions: {
+            ssl: {
+                require: true,
+                rejectUnauthorized: false, // Necessário para conexão segura com o Supabase
+            },
+        },
         logging: false,             // Desativa os logs SQL (opcional)
     }
 );
