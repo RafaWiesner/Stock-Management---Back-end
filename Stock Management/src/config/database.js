@@ -18,6 +18,7 @@ const sequelize = new Sequelize(
             },
         },
         logging: false,             // Desativa os logs SQL (opcional)
+        native: true,  // Adiciona a opção "native" para tentar forçar o uso de IPv4
     }
 );
 
