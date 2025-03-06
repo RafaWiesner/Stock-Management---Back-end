@@ -1,8 +1,6 @@
 import { Sequelize } from "sequelize";
-import dotenv from "dotenv"; // Importando o dotenv
-
-// Carrega as variáveis de ambiente do arquivo .env
-dotenv.config();
+import { configDotenv } from 'dotenv'; // Importa o método configDotenv
+configDotenv(); // Carrega as variáveis de ambiente do arquivo .env
 
 // Criação da instância do Sequelize usando as variáveis do .env
 const sequelize = new Sequelize(
