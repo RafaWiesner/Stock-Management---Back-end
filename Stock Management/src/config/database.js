@@ -7,12 +7,11 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
     dialect: "postgres",
     dialectOptions: {
         ssl: {
-            
-            rejectUnauthorized: false, // Necessário para conexão segura com o Supabase
+            require: true,
+            rejectUnauthorized: false, // Necessário para conexões seguras
         },
     },
-    logging: false,  // Desativa os logs SQL (opcional)
-
+    logging: false,  // Desativa logs SQL (opcional)
 });
 
 // Teste de conexão com o banco de dados
