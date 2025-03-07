@@ -6,7 +6,7 @@ import { configDotenv } from 'dotenv'; // Importa o método configDotenv
 configDotenv(); // Carrega as variáveis de ambiente do arquivo .env
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 10000;
 
 app.use(express.json()); // Permite que o Express entenda JSON nas requisições
 app.use(cors({
