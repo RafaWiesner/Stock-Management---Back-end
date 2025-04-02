@@ -10,7 +10,7 @@ const port = process.env.PORT || 10000;
 
 app.use(express.json()); // Permite que o Express entenda JSON nas requisições
 app.use(cors({
-  origin: "https://stock-management-front-end-ruby.vercel.app",
+  origin: "https://stock-management-front-qpjy5z9y4-rafael-wiesners-projects.vercel.app",
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"]
 }));
 
