@@ -16,8 +16,7 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
     logging: false,  // Desativa logs SQL (opcional)
 });
 
-import "../models/User.js";
-import "../models/Product.js";
+import '../models/index.js'
 
 // Teste de conexão com o banco de dados
 sequelize.authenticate()
