@@ -1,14 +1,15 @@
 import Product from "../models/Product.js"
 
 
-const getAllProducts = async () => {
+const getAllProducts = async (userId) => {
     try {
-        const products = await Product.findAll();
-        return products;
+      const whereClause = userId ? { userId } : { userId: null };
+      const products = await Product.findAll({ where: whereClause });
+      return products;
     } catch (error) {
-        throw new Error('Erro ao buscar os produtos');
+      throw new Error("Erro ao buscar os produtos");
     }
-}
+  };
 
 const createProduct = async (productData) => {
     try {

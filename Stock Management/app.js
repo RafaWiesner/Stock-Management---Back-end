@@ -1,6 +1,7 @@
 import express from "express"
 import cors from "cors"
 import productRoutes from "./src/routes/productRoutes.js"
+import userRoutes from "./src/routes/userRoutes.js"
 
 import { configDotenv } from 'dotenv'; // Importa o método configDotenv
 configDotenv(); // Carrega as variáveis de ambiente do arquivo .env
@@ -15,6 +16,7 @@ app.use(cors({
 }));
 
 app.use('/products', productRoutes);
+app.use('/users', userRoutes);
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`)

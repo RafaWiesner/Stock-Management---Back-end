@@ -1,13 +1,14 @@
 import productService from "../services/productService.js"
 
 const getAllProducts = async (req, res) => {
+    const userId = req.query.userId || null;
     try {
-        const products = await productService.getAllProducts(); // Chama o serviço para obter todos os produtos
-        res.status(200).json(products); // Retorna os produtos como resposta JSON
+      const products = await productService.getAllProducts(userId);
+      res.status(200).json(products);
     } catch (error) {
-        res.status(500).json({ message: 'Erro ao buscar os produtos.' });
+      res.status(500).json({ message: "Erro ao buscar os produtos." });
     }
-}
+  };
 
 const createProduct = async (req,res) => {
     try {
