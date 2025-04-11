@@ -2,8 +2,7 @@ import { Sequelize } from "sequelize";
 import { configDotenv } from 'dotenv'; // Importa o método configDotenv
 configDotenv(); // Carrega as variáveis de ambiente do arquivo .env
 
-import "../models/User.js";
-import "../models/Product.js";
+
 
 // Criação da instância do Sequelize usando a URL de conexão do banco de dados
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
@@ -16,6 +15,9 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
     },
     logging: false,  // Desativa logs SQL (opcional)
 });
+
+import "../models/User.js";
+import "../models/Product.js";
 
 // Teste de conexão com o banco de dados
 sequelize.authenticate()
