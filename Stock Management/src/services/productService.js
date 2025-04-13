@@ -1,12 +1,17 @@
 import Product from "../models/Product.js"
+const { Op } = require("sequelize"); // importa operador
 
 
 const getAllProducts = async (userId) => {
     try {
-      const whereClause = userId ? { userId } : { userId: null };
+      const whereClause = userId
+        ? { userId } // exibe produtos do usuário
+        : { userId: { [Op.is]: null } }; // exibe produtos "públicos"
+  
       const products = await Product.findAll({ where: whereClause });
       return products;
     } catch (error) {
+      console.error("Erro no service getAllProducts:", error); // mostre o erro real
       throw new Error("Erro ao buscar os produtos");
     }
   };
