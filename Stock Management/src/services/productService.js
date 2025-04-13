@@ -1,5 +1,5 @@
 import Product from "../models/Product.js"
-const { Op } = require("sequelize"); // importa operador
+import { Op } from "sequelize";
 
 
 const getAllProducts = async (userId) => {
