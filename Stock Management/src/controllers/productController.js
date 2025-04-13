@@ -1,7 +1,9 @@
 import productService from "../services/productService.js"
 
 const getAllProducts = async (req, res) => {
-    const userId = req.query.userId || null;
+    
+    const userId = req.query.userId ? Number(req.query.userId) : null;
+
     try {
       const products = await productService.getAllProducts(userId);
       res.status(200).json(products);
