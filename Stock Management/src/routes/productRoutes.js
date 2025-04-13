@@ -4,15 +4,15 @@ import productController from "../controllers/productController.js"
 const router = express.Router();
 
 // Rota para listar todos os produtos (GET)
-router.get('/', productController.getAllProducts)
+router.get('/products', productController.getAllProducts)
 
 //Rota para adicionar um novo produto (POST)
-router.post('/', productController.createProduct)
+router.post('/products', productController.createProduct)
 
 //Rota para atualizar um produto
-router.patch('/:id', productController.updateProduct)
+router.patch('/products/:id', productController.updateProduct)
 
 //Rota para deletar um produto
-router.delete('/:id', productController.deleteProduct)
+router.delete('/products/:id', productController.deleteProduct)
 
 export default router;

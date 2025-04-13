@@ -6,6 +6,7 @@ const getAllProducts = async (req, res) => {
       const products = await productService.getAllProducts(userId);
       res.status(200).json(products);
     } catch (error) {
+      console.error("Erro ao buscar produtos:", error); // ADICIONA ISSO
       res.status(500).json({ message: "Erro ao buscar os produtos." });
     }
   };
