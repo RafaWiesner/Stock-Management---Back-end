@@ -2,6 +2,7 @@ import express from "express"
 import cors from "cors"
 import productRoutes from "./src/routes/productRoutes.js"
 import userRoutes from "./src/routes/userRoutes.js"
+import "./src/config/database.js"
 
 import { configDotenv } from 'dotenv'; // Importa o método configDotenv
 configDotenv(); // Carrega as variáveis de ambiente do arquivo .env
