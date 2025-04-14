@@ -15,7 +15,7 @@ const loginUser = async (email, password) => {
   if (!user || user.password !== password) {
     throw new Error("E-mail ou senha inválidos.");
   }
-
+  
   return user;
 };
 

@@ -1,5 +1,5 @@
 import sequelize from "./sequelizeInstance.js";
-import "../models/index.js"; // só importa os models DEPOIS de ter o sequelize pronto
+import "../models/index.js";
 
 sequelize.authenticate()
   .then(() => {
